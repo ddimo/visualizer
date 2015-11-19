@@ -9,6 +9,8 @@ class Product(object):
         self._exp = ""          # exp
         self._levelneed = ""    # levelneed
         self._name = ""         # name
+        self._type = ""         # type
+        self._event = ""        # event
 
     # elem - <quest>
     def load(self, elem):
@@ -17,6 +19,7 @@ class Product(object):
         self._levelneed = elem.get("levelneed")
         self._name = elem.get("name")
         self._type = elem.get("type")
+        self._event = elem.get("event",None)
 
     @property
     def build_time(self):
@@ -37,3 +40,7 @@ class Product(object):
     @property
     def type(self):
         return self._type
+
+    @property
+    def event(self):
+        return self._event
