@@ -86,6 +86,7 @@ script.append("}")
 
 
 
+used_products = []
 
 for factory in buildings.factory:
 	for item in factory.item:
@@ -97,14 +98,19 @@ for factory in buildings.factory:
 		for production in item.production:
 			for product in production.product:
 				# print product.name
-				cur_product = product.name
-				#script.append("{0} -> {1} [style=dotted];".format(cur_factory_id, cur_product))
+				cur_product = "f_"+product.name
+				used_products.append(cur_product)
+				script.append("{0} -> {1} [style=dotted,arrowhead=invdot];".format(cur_factory_id, cur_product))
 				#for resource in product.resource:
 					# print resource.name
 					# script.append("{0} -> {1} [style=dotted];".format(cur_resource, cur_product))
 
 
-
+# script.append("{ rank = same;")
+# script.append(" bottom_root;")
+# for used_product in used_products:
+# 	script.append(" {0};".format(used_product))
+# script.append("}")
 
 
 
